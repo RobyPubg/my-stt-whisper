@@ -1,0 +1,3 @@
+# Tambahkan ke fly.toml
+[experimental]
+  auto_swap = true
