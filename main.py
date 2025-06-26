@@ -5,6 +5,11 @@ import uvicorn
 import os
 import tempfile
 import ssl
+from dotenv import load_dotenv
+
+# Load .env file
+load_dotenv()
+
 
 # Disable SSL verification (if needed)
 ssl._create_default_https_context = ssl._create_unverified_context
@@ -17,7 +22,7 @@ app = FastAPI()
 
 # Authentication dependency
 security = HTTPBearer()
-API_TOKEN = "myjayatoken123"  # Ganti token sesuai kebutuhan
+API_TOKEN = os.environ.get("API_TOKEN", "defaulttoken123")
 
 def verify_token(credentials: HTTPAuthorizationCredentials = Depends(security)):
     if credentials.credentials != API_TOKEN:
