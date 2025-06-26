@@ -17,7 +17,7 @@ app = FastAPI()
 
 # Authentication dependency
 security = HTTPBearer()
-API_TOKEN = "mysecrettoken123"  # Ganti token sesuai kebutuhan
+API_TOKEN = "myjayatoken123"  # Ganti token sesuai kebutuhan
 
 def verify_token(credentials: HTTPAuthorizationCredentials = Depends(security)):
     if credentials.credentials != API_TOKEN:
